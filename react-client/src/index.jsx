@@ -20,12 +20,24 @@ class App extends Component {
     axios.get('/getAllPins').then(res => this.setState({pins: res.data}));
   }
 
+  getMorePins() {
+    axios.get(`getMorePins?index=${this.state.index}`)
+      .then(res => {
+        this.setState({
+          pins: this.state.pins.concat(res.data),
+          index: this.state.index += 10
+        });
+      })
+      .catch(err => console.error(err));
+  }
+
   componentDidMount() {
-    this.getAllPins();
+    this.getMorePins();
   }
 
   render() {
     console.log('pins:', this.state.pins);
+    console.log('index:', this.state.index);
 
     return (
       <div>
