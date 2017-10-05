@@ -1,2 +1,2 @@
-# pins
+# Pins
 Infinite pins.
