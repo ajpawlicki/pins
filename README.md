@@ -18,4 +18,4 @@ In your root directory run, `npm install`.
 * User can click on pins to visit the original link.
 
 ## Notes
-Built with React, Webpack, and Bootstrap.
+Built with React and Webpack.
