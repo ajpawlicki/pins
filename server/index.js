@@ -15,10 +15,12 @@ app.get('/getAllPins', (req, res) => {
   res.send(pins);
 });
 
+const increment = 8;
+
 app.get('/getMorePins', (req, res) => {
   const index = +req.query.index;
 
-  res.send(pins.slice(index, index + 10));
+  res.send(pins.slice(index, index + increment));
 });
 
 app.listen(process.env.PORT || 5000, () => console.log('Listening on port 5000!'));
