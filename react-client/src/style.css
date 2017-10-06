@@ -1,0 +1,77 @@
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+}
+
+.header {
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  height: 80%;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  /* overflow: auto; */
+  overflow-y: scroll;
+  margin: 5px;
+  padding: 10px 0px;
+}
+
+.pin-container {
+  display: flex;
+  align-items: center;
+  margin: 5px 0px;
+}
+
+.pin {
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.pin:hover {
+  background-color: #F0F0F0;
+}
+
+.pin img {
+  border-radius: 8px;
+}
+
+.description {
+  width: 10em;
+  word-wrap: break-word;
+  text-align: center;
+  margin-top: 10px;
+  /* text-decoration: none !important; */
+  /* overflow: hidden;
+  height: 100px;
+  line-height: 20px; */
+}
+
+.loading {
+  width: 100%;
+}
