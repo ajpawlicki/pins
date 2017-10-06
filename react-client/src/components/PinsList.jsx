@@ -14,9 +14,6 @@ class PinsList extends Component {
         {this.props.pins.map(pin => <Pin
           key={pin.id}
           pin={pin} />)}
-        {this.props.loadingData ? <div className="loading">Loading...</div> : null}
-        {this.props.emptyData ? <div>No more data!</div> : null}
-        {this.props.errorRetrievingData ? <div>There was a problem.</div> : null}
       </div>
     );
   }
