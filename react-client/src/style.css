@@ -5,17 +5,19 @@
 }
 
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: system-ui, sans-serif, Georgia, "Times New Roman", Times, serif;
 }
 
 #app {
   height: 100vh;
   display: flex;
   width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .header {
-  height: 20%;
+  height: 15%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,6 +26,15 @@ body {
 .container {
   display: flex;
   height: 80%;
+  flex-direction: column;
+}
+
+.alerts {
+  height: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
 }
 
 .list {
@@ -32,10 +43,10 @@ body {
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 100%;
-  /* overflow: auto; */
   overflow-y: scroll;
   margin: 5px;
   padding: 10px 0px;
+  border-top: 1px solid #F0F0F0;
 }
 
 .pin-container {
@@ -66,12 +77,16 @@ body {
   word-wrap: break-word;
   text-align: center;
   margin-top: 10px;
-  /* text-decoration: none !important; */
   /* overflow: hidden;
   height: 100px;
   line-height: 20px; */
 }
 
-.loading {
-  width: 100%;
+a {
+  text-decoration: none !important;
+  color: #606060 !important;
+}
+
+.header img {
+  height: 100%;
 }
