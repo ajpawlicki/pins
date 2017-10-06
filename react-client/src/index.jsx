@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import PinsList from './components/PinsList.jsx';
 
+import logo from './img/pinterest-logo.png';
 import './style.css';
 import axios from 'axios';
 
@@ -48,7 +49,10 @@ class App extends Component {
       .catch(err => {
         console.error(err);
 
-        this.setState({errorRetrievingData: true});
+        this.setState({
+          errorRetrievingData: true,
+          loadingData: false
+        });
       });
   }
 
@@ -67,18 +71,19 @@ class App extends Component {
   }
 
   render() {
-    // console.log('pins:', this.state.pins);
-    // console.log('index:', this.state.index);
-
     return (
       <div>
-        <div className="header"><h1>Pins</h1></div>
-        <div className="container" onScroll={this.handleScroll}>
-          <PinsList pins={this.state.pins}
-            loadingData={this.state.loadingData}
-            emptyData={this.state.emptyData}
-            errorRetrievingData={this.state.errorRetrievingData} />
+        <div className="header">
+          <img src={logo} alt="Pins"/>
         </div>
+        <div className="container" onScroll={this.handleScroll}>
+          <PinsList pins={this.state.pins} />
+        </div>
+
+        {this.state.loadingData ? <div className="alerts loading"><i className="fa fa-spinner fa-spin"></i></div> : null}
+        {/* {this.state.emptyData ? <div className="alerts empty">No more data!</div> : null} */}
+        {this.state.errorRetrievingData ? <div className="alerts error">There was a problem.</div> : null}
+
       </div>
     );
   }
