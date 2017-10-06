@@ -5,39 +5,45 @@
 }
 
 body {
-  font-family: system-ui, sans-serif, Georgia, "Times New Roman", Times, serif;
+  font-family: system-ui, sans-serif, serif;
 }
 
-#app {
+.app-container {
   height: 100vh;
   display: flex;
+  flex-flow: row wrap;
   width: 100%;
   align-items: center;
   justify-content: center;
 }
 
 .header {
-  height: 15%;
+  height: 10%;
   display: flex;
+  flex: 1 100%;
   align-items: center;
   justify-content: center;
 }
 
-.container {
+.header img {
+  height: 65px;
+}
+
+.body-content {
   display: flex;
-  height: 80%;
+  height: 85%;
   flex-direction: column;
 }
 
 .alerts {
   height: 5%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  flex: 1 100%;
   font-size: 18px;
+  text-align: center;
+  color: #555;
 }
 
-.list {
+.list-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -45,14 +51,14 @@ body {
   width: 100%;
   overflow-y: scroll;
   margin: 5px;
-  padding: 10px 0px;
+  padding: 10px 0;
   border-top: 1px solid #F0F0F0;
 }
 
 .pin-container {
   display: flex;
   align-items: center;
-  margin: 5px 0px;
+  margin: 5px 0;
 }
 
 .pin {
@@ -70,6 +76,7 @@ body {
 
 .pin img {
   border-radius: 8px;
+  min-width: 236px;
 }
 
 .description {
@@ -77,16 +84,13 @@ body {
   word-wrap: break-word;
   text-align: center;
   margin-top: 10px;
-  /* overflow: hidden;
-  height: 100px;
-  line-height: 20px; */
 }
 
-a {
-  text-decoration: none !important;
-  color: #606060 !important;
+.pin-container a {
+  text-decoration: none;
+  color: #555;
 }
 
-.header img {
-  height: 100%;
+.hidden {
+  display: none;
 }
