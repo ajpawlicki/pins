@@ -11,11 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/../react-client/dist/'));
 
-app.get('/getAllPins', (req, res) => {
-  res.send(pins);
-});
-
-const increment = 8;
+const increment = 6;
 
 app.get('/getMorePins', (req, res) => {
   const index = +req.query.index;
