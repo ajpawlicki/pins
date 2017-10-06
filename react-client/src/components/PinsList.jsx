@@ -10,11 +10,11 @@ class PinsList extends Component {
 
   render() {
     return (
-      <div className="list">
+      <ul className="list-container">
         {this.props.pins.map(pin => <Pin
           key={pin.id}
           pin={pin} />)}
-      </div>
+      </ul>
     );
   }
 }

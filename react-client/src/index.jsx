@@ -11,6 +11,8 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    this.increment = 6;
+
     this.state = {
       pins: [],
       index: 0,
@@ -22,10 +24,6 @@ class App extends Component {
     this.handleScroll = this.handleScroll.bind(this);
   }
 
-  getAllPins() {
-    axios.get('/getAllPins').then(res => this.setState({pins: res.data}));
-  }
-
   getMorePins() {
     this.setState({loadingData: true});
     
@@ -34,7 +32,7 @@ class App extends Component {
         if (res.data.length > 0) {
           this.setState({
             pins: this.state.pins.concat(res.data),
-            index: this.state.index += 8,
+            index: this.state.index += this.increment,
           });
           
         } else {
@@ -61,7 +59,7 @@ class App extends Component {
   }
 
   handleScroll() {
-    const list = document.querySelector('.list');
+    const list = document.querySelector('.list-container');
 
     const isScrolledToEnd = list.scrollTop >= (list.scrollHeight - list.offsetHeight);
 
@@ -72,18 +70,20 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="app-container">
         <div className="header">
           <img src={logo} alt="Pins"/>
         </div>
-        <div className="container" onScroll={this.handleScroll}>
+
+        <div className="body-content container" onScroll={this.handleScroll}>
           <PinsList pins={this.state.pins} />
         </div>
-
-        {this.state.loadingData ? <div className="alerts loading"><i className="fa fa-spinner fa-spin"></i></div> : null}
-        {/* {this.state.emptyData ? <div className="alerts empty">No more data!</div> : null} */}
-        {this.state.errorRetrievingData ? <div className="alerts error">There was a problem.</div> : null}
-
+        
+        <div className="alerts">
+          {this.state.loadingData ? <div className="loading"><i className="fa fa-spinner fa-spin"></i></div> : null}
+          {this.state.emptyData ? <div className="empty">No more cats!</div> : null}
+          {this.state.errorRetrievingData ? <div className="error">There was a problem.</div> : null}
+        </div>
       </div>
     );
   }
